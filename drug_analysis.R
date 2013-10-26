@@ -14,7 +14,6 @@ outcomes <- read.table("~/Downloads/faers_ascii_2012q4/ascii/outc12q4.txt", sep 
 # There are commonly many names for a drug, see below where I put three grepl statements
 # with text like, "put drug brand name here", you can replace this with drug brand names
 # you can add or remote grepl statements depending on the number of brand names you want to look over.
-
 df <- drug[(grepl("put drug brand name 1 here", drug$drugname, ignore.case = T) | # drug is likely to be entered as many different brand names, use this to capture them individually
               grepl("put drug brand name 2 here", drug$drugname, ignore.case = T) | # enter drug names here, add or remove grepl() as needed with "or" statements \
               grepl("put drug brand name 3 here ... add more grepl statements as necessary", drug$drugname, ignore.case = T)) & drug$drug_seq == 1, ] # drug seq 1 == suspect drug of many possible that patient is taking
